@@ -1,0 +1,155 @@
+	int centerVertex = checkForcenterVertex(e, n);
+			boolean graphIsEven = checkIfGraphIsEven(n);
+
+			/* So first we've checked if there's a "center" vertex, because if it has a center vertex it can't be a cycle. However, it can be a wheel
+			The method for checking if it's a cycle and if it's a wheel is different, because a wheel is connected to three vertices instead of 2
+			*/
+
+			if (centerVertex != 0)
+			{
+				if (checkIfGraphIsWheel(e, n, centerVertex))
+				{
+					System.out.println("The graph is a wheel!");
+					if (graphIsEven)
+					{
+						System.out.println("Chromatic number =  4");
+					}
+					else System.out.println("Chromatic number = 3");
+				}
+				else System.out.println("The graph is not a wheel..");
+			}
+			else System.out.println("The graph is not a wheel..");
+
+			if (checkIfGraphIsCycle(e, n))
+			{
+				System.out.println("The graph is a cycle!");
+				if (graphIsEven)
+				{
+					System.out.println("Chromatic number = 2");
+				}
+				else System.out.println("Chromatic number = 3");
+			}
+			else System.out.println("The graph is not a cycle..");
+
+			/* final long startTime = System.nanoTime();
+			System.out.println(checkIfGraphIsCycle(e, n));
+			System.out.println(System.nanoTime() - startTime); */
+		}
+
+		public static boolean checkIfGraphIsEven(int n)
+		{
+			if (n % 2 == 0)
+			{
+				return true;
+			}
+			else return false;
+		}
+
+		public static boolean checkIfGraphIsCycle(ColEdge[] e, int n)
+		{
+			int rightAmountOfVertices = 0; // The vertices that have 2 connected edge
+
+			for (int i = 1; i <= n; i++) // For each vertex
+			{
+				int amountOfVertices = 0; // Amount of vertices connected to i
+
+				for (int j = 0; j < e.length; j++) // For each edge
+				{
+					int firstValueOfEdge = e[j].u;
+					int secondValueOfEdge = e[j].v;
+
+					if (i == firstValueOfEdge) // If the first value of an edge = i, we want to add + 1 to the amountOfVertices, because the second vertex is connected to i
+					{
+						amountOfVertices += 1;
+					}
+					else if (i == secondValueOfEdge) // If the second value of an edge = i, we want to add + 1 to the amountOfVertices, because the first vertex connected to i
+					{
+						amountOfVertices += 1;
+					}
+				}
+
+				if (amountOfVertices == 2) // There are two vertices connected to i. Add + 1 to the rightAmountOfVertices.
+				{
+					rightAmountOfVertices += 1;
+				}
+				else return false;
+			}
+
+			if (rightAmountOfVertices == n) // So the amount of vertices that have 2 other vertices connected to it needs to be the same as the total amount of vertices; every vertex has 2 other vertices connected to it
+			{
+				return true;
+			}
+			else return false;
+		}
+
+		public static boolean checkIfGraphIsWheel(ColEdge[] e, int n, int centerVertex)
+		{
+			// We only want to check if the graph excluded the center vertex is a cycle, because a cycle + a center vertex is a wheel
+			// So if it's also a cycle: it's a wheel, otherwise it's neither
+
+			int rightAmountOfVertices = 0;
+
+			for (int i = 1; i <= n; i++)
+			{
+				if (i != centerVertex) // Don't check the centerVertex, because in case if it's a wheel it has n - 1 vertices connected to it, and not 2
+				{
+					int amountOfVertices = 0;
+
+					for (int j = 0; j < e.length; j++)
+					{
+						int firstValueOfEdge = e[j].u;
+						int secondValueOfEdge = e[j].v;
+
+						if (i == firstValueOfEdge && secondValueOfEdge != centerVertex) // Don't check if i is connected to the center vertex, because we already know it is
+						{
+							amountOfVertices += 1;
+						}
+						else if (i == secondValueOfEdge && firstValueOfEdge != centerVertex) // Don't check if i is connected to the center vertex, because we already know it is
+						{
+							amountOfVertices += 1;
+						}
+					}
+					if (amountOfVertices == 2)
+					{
+						rightAmountOfVertices += 1;
+					}
+					else return false;
+				}
+			}
+
+			if (rightAmountOfVertices == n - 1) // The amount of vertices that have 2 other vertices connected to it is not the same as the total vertices, because the wheel is excluded: So n - 1
+			{
+				return true;
+			}
+			else return false;
+		}
+
+		public static int checkForcenterVertex(ColEdge[] e, int n)
+		{
+			int midVertex = 0;
+
+			for (int i = 1; i <= n; i++) // Check for every vertex
+			{
+				int amountOfVertices = 0;
+
+				for (int j = 0; j < e.length; j++) // Check for every edge
+				{
+					int firstValueOfEdge = e[j].u;
+					int secondValueOfEdge = e[j].v;
+
+					if (i == firstValueOfEdge || i == secondValueOfEdge) // Check if a vertex is represented in the edge array. If so, add + 1 to the amountOfVertices
+					{
+						amountOfVertices += 1;
+					}
+				}
+
+				if (amountOfVertices == n - 1) // If i is connected to all other vertices, it is connected to n - 1 vertices
+				{
+					midVertex = i; // i is the center vertex
+					return midVertex;
+				}
+			}
+
+			return 0;
+		}
+}

@@ -1,0 +1,54 @@
+.root{
+  -fx-background-color: #dedede;
+}
+.button{
+  -fx-background-color: #f2b655;
+  -fx-border-width: 3.0;
+  -fx-border-color: #000000;
+}
+.button:pressed{
+	-fx-background-color: #FBDAA5;
+}
+
+.graphcreate-label{
+  -fx-font-family: "Arial Bold";
+  -fx-font-size: 30.0px;
+}
+
+.graphcreate-button{
+  -fx-font-family: "Arial Bold";
+}
+
+.graphcreate-textfield{
+  -fx-border-width: 3.0;
+  -fx-border-color: #000000;
+}
+
+.text-input:focused{
+	-fx-border-color: #446bd5;
+}
+
+.menu-button{
+  -fx-font-family: "Arial Bold";
+  -fx-font-size: 25.0px;
+}
+
+.slider .track {
+    -fx-pref-height:25.0;
+    -fx-border-color: #000000;
+    -fx-border-width: 2;
+}
+
+.slider .thumb {
+    -fx-pref-height: 40.0;
+    -fx-pref-width: 30.0;
+    -fx-background-color: #000000;
+}
+
+.slider{
+	-fx-control-inner-background: #f2b655;
+}
+
+.slider:pressed{
+	-fx-control-inner-background: #FBDAA5;
+}
