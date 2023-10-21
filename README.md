@@ -17,8 +17,8 @@ For graphs that are relatively small or possess specific characteristics, the ch
 ## Tournament Achievement:
 This code was competed in a tournament at Maastricht University, and we are proud to announce that we secured the 4th position out of 27 participating groups.
 
-## Essay:
-For a detailed understanding of the research and methodologies employed in this project, you can refer to the [essay](https://drive.google.com/file/d/1Ung9Gr5SY_6gV8dDxByq9o8QWv_XysIR/view?usp=share_link).
+## Report:
+For a detailed understanding of the research and methodologies employed in this project, you can refer to the [report](https://drive.google.com/file/d/1Ung9Gr5SY_6gV8dDxByq9o8QWv_XysIR/view?usp=share_link).
 
 ## Getting Started:
 To get started with this project, follow the instructions provided in each phase's respective README.
