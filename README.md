@@ -15,7 +15,7 @@ The primary aim of this project is to enhance the calculation speeds for determi
 For graphs that are relatively small or possess specific characteristics, the chromatic number is computed instantaneously. On the other hand, larger graphs, up to a certain size, are processed within a reasonable timeframe. Given the current computational limitations in solving NP-complete problems (including those faced by Quantum computers), this research demonstrates that by providing precise instructions to computers, employing a multi-algorithmic strategy, and optimizing the code, it is feasible to obtain results even for graphs with high complexity.
 
 ## Tournament Achievement:
-This code was competed in a tournament at Maastricht University, and we are proud to announce that we secured the 4th position out of 27 participating groups.
+This project competed in a tournament at Maastricht University. We are proud to announce that we secured the 4th position out of 27 participating groups.
 
 ## Report:
 For a detailed understanding of the research and methodologies employed in this project, you can refer to the [report](https://drive.google.com/file/d/1Ung9Gr5SY_6gV8dDxByq9o8QWv_XysIR/view?usp=share_link).
